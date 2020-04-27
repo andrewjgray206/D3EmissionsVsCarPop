@@ -23,7 +23,7 @@ function createScatter(dataset){
 
         var yScale = d3.scaleLinear()
                         .domain([12000000,18000000])
-                        .range([h,0]);
+                        .range([h-padding,padding]);
 
         var xAxis = d3.axisBottom()
                         .scale(xScale);
@@ -50,10 +50,10 @@ function createScatter(dataset){
             .attr("fill","red");
         
         svg.append("g")
-            .attr("transform", "translate(1+"+ (h - padding) +")")
+            .attr("transform", "translate(0+"+ (h - padding) +")")
             .call(xAxis);
         svg.append("g")
-            .attr("transform","translate(0"+padding+")")
+            .attr("transform","translate(0"+(padding)+")")
             .call(yAxis);
         
     }
