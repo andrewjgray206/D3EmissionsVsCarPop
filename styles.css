@@ -1,7 +1,10 @@
 footer{
-    color: grey;
+    color: black;
 }
 
 h1{
     text-align: center;
+}
+body{
+    background-color: lightblue;
 }
