@@ -13,9 +13,9 @@ function createScatter(dataset){
 
     var w = 900;
     var h = 500;
-    var padding=60;
+    var padding=90;
 
-    if (dataset){
+    if (dataset){ //if the dataset exists (eg reads in correctly)
 
         var xScale = d3.scaleLinear()
                         .domain([320000,400000])
@@ -34,7 +34,8 @@ function createScatter(dataset){
         var svg = d3.select("#svgtoedit")
                 .append("svg")
                 .attr("width",w)
-                .attr("height",h);
+                .attr("height",h)
+                .attr("fill","grey");
         
         svg.selectAll("circle")
             .data(dataset)
@@ -55,6 +56,16 @@ function createScatter(dataset){
         svg.append("g")
             .attr("transform","translate(0"+(padding)+")")
             .call(yAxis);
+        svg.append("text")
+            .attr("transform",
+                    "translate(" + (300)+ " ," +
+                                    (h-20)+ ")")
+            .text("Carbon Emissions of Australia in KiloTonnes");
+        svg.append("text")
+            .attr("transform","rotate(-90)")
+            .attr("y",20)
+            .attr("x",-300)
+            .text("Vehicle Population");
         
     }
 
