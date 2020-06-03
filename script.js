@@ -37,6 +37,11 @@ function createScatter(dataset){
                 .attr("height",h)
                 .attr("fill","grey");
         
+        var tooltip = d3.select("#svgtoedit")
+                        .append("div")
+                        .attr("class","tooltip")
+                        .style("opacity",0);
+        
         svg.selectAll("circle")
             .data(dataset)
             .enter()
@@ -47,8 +52,33 @@ function createScatter(dataset){
             .attr("cy",function(d){
                 return yScale(d.carpop);
             })
-            .attr("r",5)
-            .attr("fill","red");
+            .attr("r",6)
+            .attr("fill","red")
+            .on("mouseover",function(d){
+                d3.select(this)
+                    .attr("fill","yellow");
+
+                var xPos = parseFloat(d3.select(this).attr("cx"))
+                var yPos = parseFloat(d3.select(this).attr("cy"))
+                console.log("x=",xPos);
+                console.log("y=",yPos);
+                
+                var html  = "<b>"+d.year + "<b/> <br/>" +
+                "<span>" +"Emissions(kt): " + d.emissions + "</span><br/>" +
+                "<b>" +"Vehicle Population: "+ d.carpop;
+                
+                tooltip.html(html)
+                        .style("left",(xPos-40)+"px")
+                        .style("top",(yPos+40)+"px")
+                        .transition()
+                        .duration(200)
+                        .style("opacity",0.9)
+            })
+            .on("mouseout",function(d,i){
+                d3.select(this)
+                    .attr("fill","red");
+                tooltip.style("opacity",0);
+            });
         
         svg.append("g")
             .attr("transform", "translate(0+"+ (h - padding) +")")
@@ -57,16 +87,13 @@ function createScatter(dataset){
             .attr("transform","translate(0"+(padding)+")")
             .call(yAxis);
         svg.append("text")
-            .attr("transform",
-                    "translate(" + (300)+ " ," +
-                                    (h-20)+ ")")
+            .attr("transform","translate(" + (300)+ " ," + (h-20)+ ")")
             .text("Carbon Emissions of Australia in KiloTonnes");
         svg.append("text")
             .attr("transform","rotate(-90)")
             .attr("y",20)
             .attr("x",-300)
-            .text("Vehicle Population");
-        
+            .text("Vehicle Population");   
     }
 
     else{
