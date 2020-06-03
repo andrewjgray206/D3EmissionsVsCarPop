@@ -8,3 +8,11 @@ h1{
 body{
     background-color: lightblue;
 }
+.tooltip {
+    position: absolute;
+    font-size: 13px;
+    width:  auto;
+    height: auto;
+    pointer-events: none;
+    background-color: lightgray;
+}
