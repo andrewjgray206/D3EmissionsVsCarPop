@@ -69,7 +69,7 @@ function createScatter(dataset){
                 
                 tooltip.html(html)
                         .style("left",(xPos-40)+"px")
-                        .style("top",(yPos+40)+"px")
+                        .style("top",(yPos+80)+"px")
                         .transition()
                         .duration(200)
                         .style("opacity",0.9)
