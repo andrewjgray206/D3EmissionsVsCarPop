@@ -1,5 +1,6 @@
 footer{
     color: black;
+    opacity: 0.6;
 }
 
 h1{
@@ -8,6 +9,10 @@ h1{
 body{
     background-color: lightblue;
 }
+p{
+    font-size: 18px;
+    width: 1000px;
+}
 .tooltip {
     position: absolute;
     font-size: 13px;
@@ -15,4 +20,12 @@ body{
     height: auto;
     pointer-events: none;
     background-color: lightgray;
+}
+.compareTip{
+    font-size: 20px;
+    width: 900px;
+    height: auto;
+    background-color: white;
+    border-style: dotted;
+    border-color: black;
 }
