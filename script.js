@@ -4,10 +4,8 @@ function init(){
 
         dataset = data;
         console.log("readininfo",dataset); //reads in the csv information and logs it in the console.
-        createScatter(dataset);
-
+        createScatter(dataset); //calls the createScatter function whenever the script is loaded.
     });
-
 }
 /********************************
  * The following function is used to
@@ -21,12 +19,11 @@ function init(){
 function compareInit(){
     var year1Val = document.getElementById("year1").value;
     var year2Val = document.getElementById("year2").value;
-    console.log("year1=",year1Val);
-    console.log("year2=",year2Val);
-    d3.select(".compareTip")
-        .remove();
 
-    d3.csv("projectdata2.csv").then(function(data){
+    d3.select(".compareTip")
+        .remove(); //removes any previous tips that might be on the screen.
+
+    d3.csv("projectdata2.csv").then(function(data){ //reloads the data in for this function
         csvArray = data;
         var compare1Year;
         var compare1emissions;
@@ -37,29 +34,24 @@ function compareInit(){
 
         data.forEach(function(d){
             if (year1Val == d.year){
-                console.log("year1=",d.year);
+
                 compare1Year = d.year;
                 compare1emissions = d.emissions;
                 compare1CarPop = d.carpop;
-                console.log("compareyear1=",compare1Year);
             }
         });
 
         data.forEach(function(d){
+
             if (year2Val == d.year){
-                console.log("year2=",d.year);
+
                 compare2Year = d.year;
                 compare2emissions = d.emissions;
                 compare2CarPop = d.carpop;
-                console.log("compare2=",compare2Year);
-                console.log("compare1",compare1Year);
             }
         });
 
             if (compare2CarPop && compare1CarPop){
-                console.log("carpop1",compare1CarPop);
-                console.log("carpop2",compare2CarPop);
-                console.log("compare1and2true");
 
                 var comparedCarPop = ((compare2CarPop / compare1CarPop)*100)-100;
                 comparedCarPop = comparedCarPop.toFixed(2);
@@ -69,7 +61,8 @@ function compareInit(){
                 
                 var compareDiv = d3.select("#compareform")
                                     .append("div")
-                                    .attr("class","compareTip")
+                                    .attr("class","compareTip");
+
                 var compareHtml = "Between " + compare1Year + " and " + compare2Year
                 + " there has been a " + comparedCarPop + "% change" +" in Car Population,"+
                 " and a " + comparedEmissions + "% change in Emissions.";
@@ -79,9 +72,7 @@ function compareInit(){
                             .transition()
                             .duration(1500)
                             .style("opacity",0.9);
-                console.log("madeithere");
             }
-
         })
 }
 
