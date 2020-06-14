@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">        
         <title>COS30045 Capstone - Andrew Gray 102112347</title>
@@ -10,17 +9,62 @@
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="script.js"></script>
     </head>
+
     <body>
         <h1>Carbon Emissions versus Australian Vehicle Population</h1>
         <p>The following visualisation depicts the trend between Carbon Emissions and Motor Vehicle Population in Australia
-            between 2002 and 2014.
+            between 2002 and 2014. <br/>
+            Hovering over each point reveals the information relating to each data point, including what year, and its exact information relating to emissions and vehicle
+            in Australia.<br/>
+            <b>An important note: </b> Hybrid vehicle technology became popular and affordable at the turn of the 2010s and beyond.
+
+            <div class="comparisonForm" id="compareform">
+                <form onsubmit="compareInit();return false">
+                    <fieldset>
+                        <legend>Compare Data Points</legend>
+                        <select name="year1" id="year1">
+                            <option value="none">N/A</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                        </select>
+                        <select name="year2" id="year2">
+                            <option value="none">N/A</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                        </select>
+
+                        <button type="submit">Compare!</button>
+                    </fieldset>
+                </form>
+            </div>
         </p>
 
-        <p id="svgtoedit"></p>
+        <div id="svgtoedit"></div>
 
         <footer>Sem 1 2020: Andrew Gray 102112347<br>
         Created for Data Visualisation COS30045</footer>
-
-        
+   
     </body>
 </html>
