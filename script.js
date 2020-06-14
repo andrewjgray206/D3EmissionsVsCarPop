@@ -64,7 +64,7 @@ function compareInit(){
                                     .attr("class","compareTip");
 
                 var compareHtml = "Between " + compare1Year + " and " + compare2Year
-                + " there has been a " + comparedCarPop + "% change" +" in Car Population,"+
+                + " there was been a " + comparedCarPop + "% change" +" in Car Population,"+
                 " and a " + comparedEmissions + "% change in Emissions.";
 
                 compareDiv.html(compareHtml)
