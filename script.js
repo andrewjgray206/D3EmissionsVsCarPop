@@ -146,7 +146,7 @@ function createScatter(dataset){
                 
                 tooltip.html(html)
                         .style("left",(xPos-40)+"px")
-                        .style("top",(yPos+150)+"px")
+                        .style("top",(yPos+250)+"px")
                         .transition()
                         .duration(500)
                         .style("opacity",0.9)
